@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using CompanyEvent.Web.Models;
+using CompanyEvent.Data;
 
 namespace CompanyEvent.Web.Controllers
 {
