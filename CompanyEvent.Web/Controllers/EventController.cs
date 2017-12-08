@@ -12,10 +12,18 @@ namespace CompanyEvent.Web.Controllers
     [Authorize]
     public class EventController : Controller
     {
-        public ActionResult Index()
+
+        private EventService CreateEventService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new EventService(userId);
+            return service;
+        }
+
+        public ActionResult Index()
+        {
+            var service = CreateEventService();
+
             var model = service.GetEvents();
 
             return View(model);
@@ -30,26 +38,28 @@ namespace CompanyEvent.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(EventCreate model)
         {
-            if (ModelState.IsValid) return View(model);
+            if (!ModelState.IsValid) return View(model);
+
 
             var service = CreateEventService();
 
             if (service.CreateEvent(model))
             {
-                ViewBag.SaveResult = "Your note was created.";
+                TempData["SaveResult"] = "Your note was created";
                 return RedirectToAction("Index");
-            };
+            }
 
-            ModelState.AddModelError("", "Not could not be created.");
+            ModelState.AddModelError("", "Note could not be created.");
 
             return View(model);
         }
 
-        private EventService CreateEventService()
+        public ActionResult Details(int id)
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new EventService(userId);
-            return service;
+            var svc = CreateEventService();
+            var model = svc.GetEventById(id);
+
+            return View(model);
         }
     }
 }

@@ -54,5 +54,26 @@ namespace CompanyEvent.Services
                 return query.ToArray();
             }
         }
+
+        public EventDetail GetEventById(int eventId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Events
+                        .Single(e => e.EventId == eventId && e.OwnerId == _userId);
+                return
+                    new EventDetail
+                    {
+                        EventId = entity.EventId,
+                        Title = entity.Title,
+                        Overview = entity.Overview,
+                        Location = entity.Location,
+                        DateTime = entity.DateTime
+                    };
+            }
+        }
+
     }
 }
