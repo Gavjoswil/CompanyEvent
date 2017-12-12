@@ -75,5 +75,22 @@ namespace CompanyEvent.Services
             }
         }
 
+        public bool UpdateEvent(EventEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Events
+                        .Single(e => e.EventId == model.EventId && e.OwnerId == _userId);
+
+                entity.Title = model.Title;
+                entity.Overview = model.Overview;
+                entity.Location = model.Location;
+                entity.DateTime = model.DateTime;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
