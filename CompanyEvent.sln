@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyEvent.Contracts", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyEvent.ConsoleApp", "CompanyEvent.ConsoleApp\CompanyEvent.ConsoleApp.csproj", "{A2AF1FC8-660D-4C6A-B5E7-46EFB7D8427F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyEvent.Api", "CompanyEvent.Api\CompanyEvent.Api.csproj", "{57A5B8FD-7E49-4F8E-9B58-A4DAD26915F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{A2AF1FC8-660D-4C6A-B5E7-46EFB7D8427F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2AF1FC8-660D-4C6A-B5E7-46EFB7D8427F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2AF1FC8-660D-4C6A-B5E7-46EFB7D8427F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57A5B8FD-7E49-4F8E-9B58-A4DAD26915F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57A5B8FD-7E49-4F8E-9B58-A4DAD26915F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57A5B8FD-7E49-4F8E-9B58-A4DAD26915F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57A5B8FD-7E49-4F8E-9B58-A4DAD26915F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

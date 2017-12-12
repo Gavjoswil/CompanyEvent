@@ -45,11 +45,11 @@ namespace CompanyEvent.Web.Controllers
 
             if (service.CreateEvent(model))
             {
-                TempData["SaveResult"] = "Your note was created";
+                TempData["SaveResult"] = "Your Event was created";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Note could not be created.");
+            ModelState.AddModelError("", "Event could not be created.");
 
             return View(model);
         }
@@ -94,12 +94,35 @@ namespace CompanyEvent.Web.Controllers
 
             if (service.UpdateEvent(model))
             {
-                TempData["SaveResult"] = "Your note was updated";
+                TempData["SaveResult"] = "Your Event was updated";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Your note could not be updated");
+            ModelState.AddModelError("", "Your Event could not be updated");
             return View(model);
+        }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateEventService();
+            var model = svc.GetEventById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteEvent(int id)
+        {
+            var service = CreateEventService();
+
+            service.DeleteEvent(id);
+
+            TempData["SaveResult"] = "Your Event was deleted";
+
+            return RedirectToAction("Index");
         }
     }
 }
