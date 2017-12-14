@@ -1,4 +1,5 @@
-﻿using CompanyEvent.Services;
+﻿using CompanyEvent.Models;
+using CompanyEvent.Services;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -12,13 +13,33 @@ namespace CompanyEvent.Api.Controllers
     [Authorize]
     public class EventController : ApiController
     {
-        public IHttpActionResult Get()
+        public IHttpActionResult GetAll()
         {
             EventService eventService = CreateEventService();
 
             var events = eventService.GetEvents();
 
             return Ok(events);
+        }
+
+        public IHttpActionResult Get(int id)
+        {
+            return Ok();
+        }
+
+        public IHttpActionResult Post(EventCreate model)
+        {
+            return Ok();
+        }
+
+        public IHttpActionResult Put(EventEdit model)
+        {
+            return Ok();
+        }
+
+        public IHttpActionResult Delete(int id)
+        {
+            return Ok();
         }
 
         private EventService CreateEventService()
