@@ -24,21 +24,46 @@ namespace CompanyEvent.Api.Controllers
 
         public IHttpActionResult Get(int id)
         {
+            EventService eventService = CreateEventService();
+
+            var oneEvent = eventService.GetEventById(id);
+
+            return Ok(oneEvent);
+        }
+
+        public IHttpActionResult Post(EventCreate cevent)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateEventService();
+
+            if (!service.CreateEvent(cevent))
+                return InternalServerError();
+
             return Ok();
         }
 
-        public IHttpActionResult Post(EventCreate model)
+        public IHttpActionResult Put(EventEdit companyEvent)
         {
-            return Ok();
-        }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-        public IHttpActionResult Put(EventEdit model)
-        {
+            var service = CreateEventService();
+
+            if (!service.UpdateEvent(companyEvent))
+                return InternalServerError();
+
             return Ok();
         }
 
         public IHttpActionResult Delete(int id)
         {
+            var service = CreateEventService();
+
+            if (!service.DeleteEvent(id))
+                return InternalServerError();
+
             return Ok();
         }
 
