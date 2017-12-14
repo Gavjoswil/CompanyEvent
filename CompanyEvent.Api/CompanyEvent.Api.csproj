@@ -228,6 +228,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -317,6 +318,14 @@
     <ProjectReference Include="..\CompanyEvent.Data\CompanyEvent.Data.csproj">
       <Project>{a0ed785b-d524-4da3-9fda-eb1677971692}</Project>
       <Name>CompanyEvent.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CompanyEvent.Models\CompanyEvent.Models.csproj">
+      <Project>{2fc0192a-9343-4054-9936-86eae7fc1a89}</Project>
+      <Name>CompanyEvent.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CompanyEvent.Services\CompanyEvent.Services.csproj">
+      <Project>{227ff485-5233-45a3-9fe4-9cf277ec49b8}</Project>
+      <Name>CompanyEvent.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
