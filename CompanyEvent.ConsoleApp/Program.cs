@@ -10,6 +10,7 @@ namespace CompanyEvent.ConsoleApp
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
